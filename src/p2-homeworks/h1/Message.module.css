@@ -1,0 +1,53 @@
+.messageBlock {
+   max-width: 1600px;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+}
+
+.image {
+    margin-right: 30px;
+}
+
+img {
+   width: 70px;
+   height: 70px;
+   border-radius: 100px;
+   box-shadow: 0 0 7px #666;
+}
+
+.items {
+   display: flex;
+   align-items: flex-end;
+   background: #cfdfe9;
+   border: 1px solid #cfdfe9;
+   padding: 3px 10px;
+   border-radius: 10px;
+   position: relative;
+}
+
+.items::before{
+   content: ' ';
+   position: absolute;
+   top: 30px;
+   left: -20px;
+   border: 10px solid;
+   border-color: #cfdfe9 #cfdfe9 transparent transparent;
+}
+
+.body {
+   padding: 10px 10px 10px 10px;
+}
+
+.name {
+   color:rgb(88, 173, 54);
+   margin-bottom: 5px;
+}
+
+.message {
+   color:#666;
+}
+
+.time {
+   color: rgb(158, 157, 157)
+}
