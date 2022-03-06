@@ -1,25 +1,23 @@
 import React from 'react'
-import { messagesDataTypes } from '../../types'
 import s from './Message.module.css'
 
 type MessagePropsType = {
-    avatar: messagesDataTypes['avatar']
-    message: messagesDataTypes['message']
-    name: messagesDataTypes['name']
-    time: messagesDataTypes['time']
+    avatar: string
+    message: string
+    name: string
+    time: string
 }
 
 function Message(props: MessagePropsType) {
     return (
-        <div className={s.messageBlock}>
-            <div className={s.image}>
-                <img src={props.avatar} alt='avatar' />
-            </div>
-            <div className={s.items}>
-                <div className={s.body}>
-                    <div className={s.name}>{props.name}</div>
-                    <div className={s.message}>{props.message}</div>
-                </div>
+        <div className={s.message}>
+            <img className={s.avatar} src={props.avatar} alt='avatar' />
+
+            <div className={s.angle}></div>
+
+            <div className={s.content}>
+                <div className={s.name}>{props.name}</div>
+                <div className={s.text}>{props.message}</div>
                 <div className={s.time}>{props.time}</div>
             </div>
 
