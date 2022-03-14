@@ -1,28 +1,40 @@
-import React, {useState} from 'react'
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Greeting from './Greeting'
+import { UserType } from './HW3'
 
 type GreetingContainerPropsType = {
-    users: any // need to fix any
-    addUserCallback: any // need to fix any
+    users: Array<UserType>
+    addUserCallback: (name: string) => void
 }
 
-// более простой и понятный для новичков
-// function GreetingContainer(props: GreetingPropsType) {
+const GreetingContainer: React.FC<GreetingContainerPropsType> = ({ users, addUserCallback }) => {
+    const [name, setName] = useState<string>('')
+    const [error, setError] = useState<string>('')
+    const [totalUsers, setTotalUsers] = useState<number>(0)
 
-// более современный и удобный для про :)
-// уровень локальной логики
-const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
-    const [name, setName] = useState<any>('') // need to fix any
-    const [error, setError] = useState<any>('') // need to fix any
+    const totalCount = () => users.length
 
-    const setNameCallback = (e: any) => { // need to fix any
-        setName('') // need to fix
+    const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
+        setName(e.target.value)
     }
+
+    const handlerKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+        setError('')
+        if (e.key === 'Enter') {
+            addUser()
+        }
+    }
+
     const addUser = () => {
-        alert(`Hello  !`) // need to fix
+        if (name.trim() !== '') {
+            addUserCallback(name)
+            alert(`Hello ${name}!`)
+            setTotalUsers(totalCount)
+            setName('')
+        } else {
+            setError('Error!!!')
+        }
     }
-
-    const totalUsers = 0 // need to fix
 
     return (
         <Greeting
@@ -31,6 +43,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             addUser={addUser}
             error={error}
             totalUsers={totalUsers}
+            handlerKeyPress={handlerKeyPress}
         />
     )
 }
