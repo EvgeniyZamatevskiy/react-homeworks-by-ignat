@@ -12,7 +12,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({ users, addUse
     const [error, setError] = useState<string>('')
     const [totalUsers, setTotalUsers] = useState<number>(0)
 
-    const totalCount = () => users.length
+    const totalCount = users.length
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value)
