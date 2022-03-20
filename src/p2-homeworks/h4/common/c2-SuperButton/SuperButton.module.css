@@ -1,6 +1,10 @@
-.default {
-
-}
+.button {
+    padding: 5px 15px;
+    background: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+    color: white;
+ }
 
 .red {
     background: red;

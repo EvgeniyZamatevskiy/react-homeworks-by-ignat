@@ -2,9 +2,9 @@ import React from 'react'
 import Message from './Message'
 
 const messageData = {
-    avatar: 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg',
-    name: 'Jennifer',
-    message: 'Welcome to IT-INCUBATOR!',
+    avatar: 'https://static.tildacdn.com/tild6130-3833-4461-a465-393034623039/noroot.png',
+    name: 'Dimych',
+    message: 'Samurai, welcome to IT-INCUBATOR!!',
     time: '18:00',
 }
 
@@ -13,16 +13,13 @@ function HW1() {
         <div>
             <hr />
             homeworks 1
-
             <Message
                 avatar={messageData.avatar}
                 name={messageData.name}
                 message={messageData.message}
                 time={messageData.time}
             />
-
             <hr />
-            {/*для личного творчества, могу проверить*/}
             {/*<AlternativeMessage/>*/}
             <hr />
         </div>

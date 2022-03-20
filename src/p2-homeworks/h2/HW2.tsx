@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import Affairs from './Affairs'
 
 export type AffairPriorityType = 'high' | 'low' | 'middle'
+
 export type AffairType = {
     _id: number
     name: string
-    priority: string
+    priority: AffairPriorityType
 }
 export type FilterType = 'all' | AffairPriorityType
 
@@ -20,18 +21,11 @@ const defaultAffairs: Array<AffairType> = [
 export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Array<AffairType> => {
     if (filter === 'all') {
         return affairs
+    } else {
+        return affairs.filter(a => a.priority === filter)
     }
-    if (filter === 'high') {
-        return affairs.filter(item => item.priority === 'high')
-    }
-    if (filter === 'low') {
-        return affairs.filter(item => item.priority === 'low')
-    }
-    if (filter === 'middle') {
-        return affairs.filter(item => item.priority === 'middle')
-    }
-    return affairs
 }
+
 export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => {
     return affairs.filter(item => item._id !== _id)
 }
@@ -41,22 +35,22 @@ function HW2() {
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id))
+
+    const deleteAffairCallback = (_id: number) => {
+        setAffairs(deleteAffair(affairs, _id))
+    }
 
     return (
         <div>
             <hr />
             homeworks 2
-
-            {/*should work (должно работать)*/}
             <Affairs
                 data={filteredAffairs}
                 setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
+                filter={filter}
             />
-
             <hr />
-            {/*для личного творчества, могу проверить*/}
             {/*<AlternativeAffairs/>*/}
             <hr />
         </div>

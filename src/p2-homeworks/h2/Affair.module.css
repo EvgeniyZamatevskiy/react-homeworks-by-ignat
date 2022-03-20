@@ -1,22 +1,20 @@
 .affair {
-   max-width: 300px;
-   
+   display: flex;
 }
 
-.content {
-   display: flex;
-   justify-content: space-between;
-   
+.item {
+   margin: 10px;
+   width: 100px;
 }
 
 .high {
-   color: red;
+   color: rgb(243, 159, 159);
 }
 
 .low {
-   color: green;
+   color: rgb(175, 255, 175);
 }
 
 .middle {
-   color: orange;
+   color: rgb(255, 224, 167);
 }

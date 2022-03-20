@@ -1,35 +1,26 @@
 import React from 'react'
 import { AffairType } from './HW2'
 import s from './Affair.module.css'
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 
 type AffairPropsType = {
     affair: AffairType
-    deleteAffairCallback: (_id: number) => void
+    deleteAffairCallback: (id: number) => void
 }
 
 function Affair(props: AffairPropsType) {
+
     const deleteCallback = () => {
         props.deleteAffairCallback(props.affair._id)
     }
 
-    const priorityClasses = [s.priority]
-    props.affair.priority === 'middle' && priorityClasses.push(s.middle)
-    props.affair.priority === 'high' && priorityClasses.push(s.high)
-    props.affair.priority === 'low' && priorityClasses.push(s.low)
+    const priorityClass = `${s.item} ${s[props.affair.priority]}`
 
     return (
         <div className={s.affair}>
-
-            <div className={s.content}>
-                {props.affair.name}
-
-                <div className={priorityClasses.join(' ')}>
-                    [{props.affair.priority}]
-                </div>
-
-                <button onClick={deleteCallback}>X</button>
-
-            </div>
+            <div className={s.item}>{props.affair.name}</div>
+            <div className={priorityClass}>[{props.affair.priority}]</div>
+            <SuperButton onClick={deleteCallback}>X</SuperButton>
         </div>
     )
 }
