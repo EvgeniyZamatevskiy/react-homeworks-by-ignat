@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 40px;
+}
+
+.content a {
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+}

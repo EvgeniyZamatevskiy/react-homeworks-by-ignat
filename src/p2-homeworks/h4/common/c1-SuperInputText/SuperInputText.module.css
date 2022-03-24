@@ -2,10 +2,18 @@
    padding: 5px 15px;
    border: 1px solid black;
 }
+
+.superInput:focus {
+   outline: none;
+}
   
 .errorInput {
    padding: 5px 15px;
    border: 1px solid red;
+}
+
+.errorInput:focus {
+   outline: none;
 }
   
 .errorMessage {
