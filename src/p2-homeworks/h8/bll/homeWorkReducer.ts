@@ -15,10 +15,12 @@ type PeopleReducerType = sortUpActionType | checkActionType
 export const homeWorkReducer = (state: Array<PeopleType>, action: PeopleReducerType): Array<PeopleType> => {
     switch (action.type) {
         case 'sort': {
-            return action.payload === 'up' ? [...state].sort((a, b) => a.name > b.name ? 1 : -1) : [...state].sort((a, b) => a.name < b.name ? 1 : -1)
+            return action.payload === 'up'
+                ? [...state].sort((a, b) => a.name > b.name ? 1 : -1)
+                : [...state].sort((a, b) => a.name < b.name ? 1 : -1)
         }
         case 'check': {
-            return state.filter((s) => s.age >= action.payload)
+            return state.filter(s => s.age >= action.payload)
         }
         default:
             return state
