@@ -1,0 +1,57 @@
+{
+   // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+   // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+   // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+   "version": "0.2.0",
+   "configurations": [
+      {
+         "type": "pwa-chrome",
+         "request": "launch",
+         "name": "Launch Chrome against localhost",
+         "url": "http://localhost:3000", // изменил url
+         "webRoot": "${workspaceFolder}"
+      },
+      {
+         "name": "CRA All Tests", // Запуск всех тестов
+         "type": "node",
+         "request": "launch",
+         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+         "args": [
+            "test",
+            "--runInBand",
+            "--no-cache",
+            "--watchAll=false"
+         ],
+         "cwd": "${workspaceRoot}",
+         "protocol": "inspector",
+         "console": "integratedTerminal",
+         "internalConsoleOptions": "neverOpen",
+         "env": {
+            "CI": "true"
+         },
+         "disableOptimisticBPs": true
+      },
+      {
+         "name": "CRA Single Tests", // Запуск одного теста
+         "type": "node",
+         "request": "launch",
+         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+         "args": [
+            "test",
+            "--runInBand",
+            "--no-cache",
+            "--watchAll=false",
+            "--runTestsByPath",
+            "${relativeFile}"
+         ],
+         "cwd": "${workspaceRoot}",
+         "protocol": "inspector",
+         "console": "integratedTerminal",
+         "internalConsoleOptions": "neverOpen",
+         "env": {
+            "CI": "true"
+         },
+         "disableOptimisticBPs": true
+      }
+   ]
+}
