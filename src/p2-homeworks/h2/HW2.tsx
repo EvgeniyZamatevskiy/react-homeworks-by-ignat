@@ -51,7 +51,6 @@ function HW2() {
                 filter={filter}
             />
             <hr />
-            {/*<AlternativeAffairs/>*/}
             <hr />
         </div>
     )

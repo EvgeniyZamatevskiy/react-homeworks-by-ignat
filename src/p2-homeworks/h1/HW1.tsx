@@ -20,8 +20,6 @@ function HW1() {
                 time={messageData.time}
             />
             <hr />
-            {/*<AlternativeMessage/>*/}
-            <hr />
         </div>
     )
 }

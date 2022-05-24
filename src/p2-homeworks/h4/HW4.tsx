@@ -63,14 +63,9 @@ function HW4() {
                     some text
                 </SuperCheckbox>
 
-                {/*// onChange тоже должен работать*/}
                 <SuperCheckbox checked={checked} onChange={testOnChange} />
             </div>
 
-            <hr />
-            {/*<AlternativeSuperInputText/>*/}
-            {/*<AlternativeSuperButton/>*/}
-            {/*<AlternativeSuperCheckbox/>*/}
             <hr />
         </div>
     )
